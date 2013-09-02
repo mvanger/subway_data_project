@@ -138,6 +138,10 @@ body, html {
   cursor: pointer;
 }
 
+#all-trains-button {
+  cursor: pointer;
+}
+
 #tooltip {
   z-index: 1;
   color: black;
