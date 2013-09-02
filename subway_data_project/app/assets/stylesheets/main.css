@@ -169,12 +169,25 @@ body, html {
 
 .svg-chart {
   position: relative;
-  width: 1000px;
+  width: 900px;
   margin: 0 auto;
 }
 
 #hidden {
   display: none;
+}
+
+.description {
+  margin-top: 75px;
+  border-top: thick solid white;
+}
+
+.description p {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 850px;
+  margin: 0 auto;
+  text-align: justify;
 }
 
 .axis path,
