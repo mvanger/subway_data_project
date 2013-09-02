@@ -26,6 +26,8 @@
     <div class="line-buttons" id="s42">S</div>
     <div class="line-buttons" id="sFkln">S</div>
     <div class="line-buttons" id="sRock">S</div>
+    <button id="best-fit-button">Line of Best Fit</button>
+    <button id="all-trains-button">All Trains</button>
   </div>
   <div class="svg-chart">
   <div id="tooltip" class="hidden">
@@ -198,24 +200,6 @@
         d3.select("#tooltip").classed("hidden", true);
       });
 
-    // This labels each point with its value
-    // svg.selectAll("text")
-    //   .data(dataset)
-    //   .enter()
-    //   .append("text")
-    //   .text(function(d) {
-    //     return d;
-    //   })
-    //   .attr("x", function(d, i) {
-    //     return xScale(i);
-    //   })
-    //   .attr('y', function(d, i) {
-    //     return yScale(d);
-    //   })
-    //   .attr("font-family", "sans-serif")
-    //   .attr("font-size", "5px")
-    //   .attr("fill", "white");
-
     // These append the axes
     svg.append('g')
       .attr("class", "axis")
@@ -225,7 +209,7 @@
       .attr("class", "label")
       .attr("x", w - 40)
       .attr("y", -6)
-      .style('font-size', 20)
+      .style('font-size', '20px')
       .style("text-anchor", "end")
       .text("Date");
 
@@ -239,143 +223,161 @@
       .attr("y", 40)
       .attr("x", 220)
       .attr("dy", "1em")
-      .style('font-size', 20)
+      .style('font-size', '20px')
       .style("text-anchor", "end")
       .text("Wait Assessment (%) *");
 
     // When you click a button it changes to that train's data
 
+    d3.select("#seven")
+      .on("click", function() {
+        newPlot(sevenTrain, '#B933AD');
+        bestFitLine([73.97, 77.96]);
+      });
+
     d3.select("#n")
       .on('click', function() {
         newPlot(nTrain, '#FCCC0A');
+        bestFitLine([80.75, 77.67])
       });
 
     d3.select("#q")
       .on("click", function() {
         newPlot(qTrain, '#FCCC0A');
+        bestFitLine([82.40, 78.34])
       });
 
     d3.select("#r")
       .on("click", function() {
         newPlot(rTrain, '#FCCC0A');
-      });
-      // This is for some hover stuff
-
-      // $('.line-buttons').css('opacity', .5);
-      // $(this).css('opacity', 1);
-      // $('.line-buttons').on('mouseover', function(){
-      //   $(this).css('opacity', 1);
-      // });
-      // $('.line-buttons').on('mouseout', function(){
-      //   if ($(this).attr('id') != 'q') {
-      //     $(this).css('opacity', .5);
-      //   }
-      // });
-
-    d3.select("#seven")
-      .on("click", function() {
-        newPlot(sevenTrain, '#B933AD');
+        bestFitLine([77.30, 77.87])
       });
 
     d3.select("#one")
       .on("click", function() {
-          newPlot(oneTrain, '#EE352E');
+        newPlot(oneTrain, '#EE352E');
+        bestFitLine([72.53, 83.86])
       });
 
     d3.select("#two")
       .on("click", function() {
         newPlot(twoTrain, '#EE352E');
+        bestFitLine([72.47, 73.32])
       });
 
     d3.select("#three")
       .on("click", function() {
         newPlot(threeTrain, '#EE352E');
+        bestFitLine([76.11, 77.43])
       });
 
     d3.select("#four")
       .on("click", function() {
         newPlot(fourTrain, '#00933C');
+        bestFitLine([69.66, 75.20])
       });
 
     d3.select("#five")
       .on("click", function() {
         newPlot(fiveTrain, '#00933C');
+        bestFitLine([70.80, 71.66])
       });
 
     d3.select("#six")
       .on("click", function() {
         newPlot(sixTrain, '#00933C');
+        bestFitLine([71.60, 78.82])
       });
 
     d3.select("#a")
       .on("click", function() {
         newPlot(aTrain, '#2850AD');
+        bestFitLine([70.60, 73.93])
       });
 
     d3.select("#c")
       .on("click", function() {
         newPlot(cTrain, '#2850AD');
+        bestFitLine([78.77, 81.31])
       });
 
     d3.select("#e")
       .on("click", function() {
         newPlot(eTrain, '#2850AD');
+        bestFitLine([72.89, 75.37])
       });
 
     d3.select("#b")
       .on("click", function() {
         newPlot(bTrain, '#FF6319');
+        bestFitLine([76.92, 79.66])
       });
 
     d3.select("#d")
       .on("click", function() {
         newPlot(dTrain, '#FF6319');
+        bestFitLine([80.05, 78.72])
       });
 
     d3.select("#f")
       .on("click", function() {
         newPlot(fTrain, '#FF6319');
+        bestFitLine([69.04, 75.59])
       });
 
     d3.select("#m")
       .on("click", function() {
         newPlot(mTrain, '#FF6319');
+        bestFitLine([88.74, 75.81])
       });
 
     d3.select("#j")
       .on("click", function() {
         newPlot(jTrain, '#996633');
+        bestFitLine([85.91, 81.95])
       });
 
     d3.select("#z")
       .on("click", function() {
         newPlot(zTrain, '#996633');
+        bestFitLine([85.91, 81.95])
       });
 
     d3.select("#g")
       .on("click", function() {
         newPlot(gTrain, '#6CBE45');
+        bestFitLine([80.08, 84.22])
       });
 
     d3.select("#l")
       .on("click", function() {
         newPlot(lTrain, '#A7A9AC');
+        bestFitLine([75.63, 81.31])
       });
 
     d3.select("#s42")
       .on("click", function() {
         newPlot(s42Train, '#808183');
+        bestFitLine([74.52, 92.14])
       });
 
     d3.select("#sFkln")
       .on("click", function() {
         newPlot(sFklnTrain, '#808183');
+        bestFitLine([97.54, 96.44])
       });
 
     d3.select("#sRock")
       .on("click", function() {
         newPlot(sRockTrain, '#808183');
+        bestFitLine([91.47, 94.64])
       });
+
+    d3.select("#all-trains-button")
+      .on('click', function() {
+        newPlot(allTrains, 'white')
+        bestFitLine([76.94, 80.13])
+      })
 
     var newPlot = function(dataInput, fillColor){
       dataset = dataInput
@@ -395,5 +397,25 @@
         })
         .attr('fill', fillColor)
     }
+
+    var bestFitLine = function(train) {
+      $('.best-fit').remove();
+      var myLine = svg.append("svg:line")
+        .attr('class', 'best-fit')
+        .attr('id', 'hidden')
+        .attr("x1", 40)
+        .attr("y1", yScale(train[0]))
+        .attr("x2", 830)
+        .attr("y2", yScale(train[1]))
+        .style("stroke", "white");
+    }
+
+    $('#best-fit-button').on('click', function(){
+      $('.best-fit').fadeToggle('slow', function(){
+
+      })
+    })
+
+    bestFitLine([73.97, 77.96]);
 
   </script>

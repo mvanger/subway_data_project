@@ -134,6 +134,10 @@ body, html {
   background-color: #808183;
 }
 
+#best-fit-button {
+  cursor: pointer;
+}
+
 #tooltip {
   z-index: 1;
   color: black;
@@ -167,6 +171,10 @@ body, html {
   position: relative;
   width: 1000px;
   margin: 0 auto;
+}
+
+#hidden {
+  display: none;
 }
 
 .axis path,
