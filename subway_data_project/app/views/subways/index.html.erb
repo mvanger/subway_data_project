@@ -2,17 +2,23 @@
     <h1>New York City Subway Investigation</h1>
   </div>
   <div class="buttons">
-    <div id="seven">7</div>
-    <div id="q">Q</div>
-    <div id="one">1</div>
+    <div class="line-buttons" id="seven">7</div>
+    <div class="line-buttons" id="q">Q</div>
+    <div class="line-buttons" id="one">1</div>
+    <div class="line-buttons" id="two">2</div>
+    <div class="line-buttons" id="three">3</div>
   </div>
   <div class="svg-chart">
+  <div id="tooltip" class="hidden">
+    <p><span id="index">month</span></p>
+    <p><span id="value">100</span>%</p>
+  </div>
   </div>
   <script type="text/javascript">
 
     //Width and height
-    var w = 500;
-    var h = 300;
+    var w = 900;
+    var h = 500;
     var padding = 40;
 
     // Appends svg element
@@ -20,32 +26,35 @@
           .append("svg")
           .attr("width", w)
           .attr("height", h)
-          .attr("preserveAspectRatio", "xMidYMin");
+          .attr("class", "the-graph");
 
     // Here are some datasets
     var dataset = [];
 
     var qTrain = [81.8, 82.3, 82.2, 82.5, 83, 82.8, 83.1, 83, 82.9, 82.9, 83.3, 82.8, 82.8, 82.2, 82.2, 82.1, 81.6, 81.6, 81.4, 81, 80.1, 79.6, 79, 79.1, 78.8, 78.6, 78.3, 77.9, 77.9, 77.6, 77.9, 79, 78.7, 78.5, 79.1, 78.8, 78.3, 78.4, 78.6, 79, 79.3, 79.5, 79.6, 79.1, 79.3, 79.8, 80, 80.1, 80.2, 80.3, 80.6, 80.3, 79.8, 79.4];
 
-    var sevenTrain = [74.5, 74.4, 74.4, 74.3, 74.8, 74.9, 74.9, 76.1, 75.8, 75.8, 76.1, 76.1, 76.1, 76.2, 75.7, 75.6, 75.4, 74.6, 74.4, 74.2, 74.1, 74.1, 74.2, 74.1, 74.3, 74.4, 74.7, 75, 74.9, 75.9, 76.2, 76.2, 76, 76.3, 76, 76.8, 75.8, 76.1, 76.1, 76.3, 76.5, 76.5, 76.3, 76.6, 77.4, 78, 78.3, 77.7, 79.3, 79.2, 79.4, 79.2, 78.8, 79.2];
+    var sevenTrain = [74.5, 74.4, 74.4, 74.3, 74.8, 74.9, 74.9, 76.1, 75.8, 75.8, 76.1, 76.1, 76.1, 76.2, 75.7, 75.6, 75.4, 74.6, 74.4, 74.2, 74.1, 74.1, 74.2, 74.1, 74.3, 74.4, 74.7, 75.0, 74.9, 75.9, 76.2, 76.2, 76.0, 76.3, 76.0, 76.8, 75.8, 76.1, 76.1, 76.3, 76.5, 76.5, 76.3, 76.6, 77.4, 78.0, 78.3, 77.7, 79.3, 79.2, 79.4, 79.2, 78.8, 79.2];
 
-    var oneTrain = [73.1, 73.1, 73, 73.9, 74.1, 74.2, 74.4, 75.2, 75.6, 75.5, 76, 76.3, 76.5, 77.1, 77.1, 76.9, 76.9, 77.3, 75.3, 75.6, 74.6, 75, 73.9, 70.2, 75.9, 77.3, 78.3, 78.6, 78.1, 77.4, 77.3, 79.5, 77.6, 79.8, 79.6, 79.3, 78.9, 80.2, 80.6, 79.1, 84.4, 83.6, 83.8, 86.1, 85.4, 84.9, 82.1, 82.7, 83.9, 81.9, 81.8, 83, 82.9, 83.3];
+    var oneTrain = [73.1, 73.1, 73.0, 73.9, 74.1, 74.2, 74.4, 75.2, 75.6, 75.5, 76.0, 76.3, 76.5, 77.1, 77.1, 76.9, 76.9, 77.3, 75.3, 75.6, 74.6, 75.0, 73.9, 70.2, 75.9, 77.3, 78.3, 78.6, 78.1, 77.4, 77.3, 79.5, 77.6, 79.8, 79.6, 79.3, 78.9, 80.2, 80.6, 79.1, 84.4, 83.6, 83.8, 86.1, 85.4, 84.9, 82.1, 82.7, 83.9, 81.9, 81.8, 83, 82.9, 83.3];
+
+    var twoTrain = [71.8, 71.9, 72.3, 72.8, 72.9, 72.2, 73.2, 73.5, 73.9, 74.2, 74.3, 74.3, 74.2, 73.9, 74.1, 73.9, 74.4, 74.3, 71.8, 71.7, 72.4, 70.6, 71.7, 66.1, 69.6, 71.9, 72.4, 73.8, 69.2, 72.7, 71.7, 73.5, 71.3, 72.6, 73.6, 72.6, 71.4, 73.3, 74.1, 72.7, 74.2, 73.8, 74.7, 72.9, 73.4, 74.5, 74, 74.3, 74.9, 72.7, 74.7, 75.2, 71.9, 72.7];
+
+    var threeTrain = [74.3, 74.8, 75.4, 76.1, 76.0, 76.0, 76.6, 76.4, 76.9, 77.6, 77.5, 77.2, 77.8, 78.2, 77.8, 77.7, 77.6, 77.9, 77.1, 77.1, 76.0, 76.4, 77.7, 72.4, 75.1, 76.3, 76.1, 77.1, 75.9, 76.4, 76.5, 77.0, 75.6, 75.9, 77.4, 75.4, 75.4, 77.1, 78.4, 76.4, 77.0, 77.7, 78.7, 76.9, 76.8, 77.6, 78.3, 75.7, 79.9, 76.4, 77.8, 77.8, 76.8, 78.3];
+
+    var dates = ["Jan 2009", "Feb 2009", "Mar 2009", "Apr 2009", "May 2009", "June 2009", "July 2009", "Aug 2009", "Sept 2009", "Oct 2009", "Nov 2009", "Dec 2009", "Jan 2010", "Feb 2010", "Mar 2010", "Apr 2010", "May 2010", "June 2010", "July 2010", "Aug 2010", "Sept 2010", "Oct 2010", "Nov 2010", "Dec 2010", "Jan 2011", "Feb 2011", "Mar 2011", "Apr 2011", "May 2011", "June 2011", "July 2011", "Aug 2011", "Sept 2011", "Oct 2011", "Nov 2011", "Dec 2011", "Jan 2012", "Feb 2012", "Mar 2012", "Apr 2012", "May 2012", "June 2012", "July 2012", "Aug 2012", "Sept 2012", "Oct 2012", "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "June 2013", "Aug 2013", "Sept 2013"]
 
     // Sets 7 train as default
     dataset = sevenTrain;
 
     // These set the scales
-    var xScale = d3.scale.linear()
-      .domain([0, d3.max(dataset, function(d,i) {
-        // return i;
-        // returning 55 here (max is 54)
-        return 55;
-      })])
+    var xScale = d3.scale
+      .linear()
+      .domain([0, 55])
       .range([padding, w - padding]);
 
     // This scales with 70 to 100
     var yScale = d3.scale.linear()
-      .domain([70, 100])
+      .domain([65, 100])
       .range([h - padding, padding]);
 
     // This scales with min and max
@@ -60,6 +69,9 @@
     // These set the axes
     var xAxis = d3.svg.axis()
       .scale(xScale)
+      .tickFormat(function(d, i) {
+        return dates[d]
+      })
       .orient('bottom');
 
     // Might return to this later
@@ -69,6 +81,7 @@
       .scale(yScale)
       .orient('left');
 
+    // This concerns point overflow
     svg.append("clipPath")
       .attr("id", "chart-area")
       .append("rect")
@@ -89,18 +102,42 @@
       .style("height", function(d) {
         var pointHeight = d * 5;
         return pointHeight + "px";
-      });
+      })
+      .attr("cx", function(d, i) {
+        return xScale(i);
+      })
+      .attr("cy", function(d) {
+        return yScale(d);
+      })
+      .attr("r", 5)
+      .attr('fill', '#B933AD')
+      .on("mouseover", function(d, i) {
+        d3.select(this)
+          .attr("r", 10);
 
-    circles.attr("cx", function(d, i) {
-      return xScale(i);
-    })
-    .attr("cy", function(d) {
-      return yScale(d);
-    })
-    .attr("r", function(d) {
-      return 3;
-    })
-    .attr('fill', '#B933AD');
+          //Get this circles's x/y values, then augment for the tooltip
+          var xPosition = parseFloat(d3.select(this).attr("cx"))// + xScale.rangeBand() / 2;
+          var yPosition = parseFloat(d3.select(this).attr("cy")) - 75/// 20 + h / 2;
+          //Update the tooltip position and value
+          d3.select("#tooltip")
+            .style("left", xPosition + "px")
+            .style("top", yPosition + "px")
+            .select("#index")
+            .text(dates[i]);
+          d3.select("#tooltip")
+            .select("#value")
+            .text(d);
+
+          //Show the tooltip
+          d3.select("#tooltip").classed("hidden", false);
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(250)
+          .attr('r', 5);
+        d3.select("#tooltip").classed("hidden", true);
+      });
 
     // This labels each point with its value
     // svg.selectAll("text")
@@ -124,60 +161,70 @@
     svg.append('g')
       .attr("class", "axis")
       .attr("transform", "translate(0," + (h - padding) + ")")
-      .call(xAxis);
+      .call(xAxis)
+     .append("text")
+      .attr("class", "label")
+      .attr("x", w - 40)
+      .attr("y", -6)
+      .style('font-size', 20)
+      .style("text-anchor", "end")
+      .text("Date");
 
     svg.append('g')
       .attr("class", 'axis')
       .attr('transform', 'translate(' + padding + ", 0)")
-      .call(yAxis);
+      .call(yAxis)
+     .append("text")
+      .attr("class", "label")
+     // .attr("transform", "rotate(-90)")
+      .attr("y", 40)
+      .attr("x", 220)
+      .attr("dy", "1em")
+      .style('font-size', 20)
+      .style("text-anchor", "end")
+      .text("Wait Assessment (%) *");
 
-    // When you click the Q it changes to the Q data
+    // When you click a button it changes to that train's data
     d3.select("#q")
       .on("click", function() {
-
-      dataset = qTrain;
-
-      svg.selectAll("circle")
-        .data(dataset)
-        .transition()
-        .ease('linear')
-        .delay(function(d, i) {
-          return i * 10;
-        })
-        .attr("cx", function(d, i) {
-          return xScale(i);
-        })
-        .attr("cy", function(d) {
-          return yScale(d);
-        })
-        .attr('fill', '#FCCC0A')
+        newPlot(qTrain, '#FCCC0A');
       });
+
+      // This is for some hover stuff
+
+      // $('.line-buttons').css('opacity', .5);
+      // $(this).css('opacity', 1);
+      // $('.line-buttons').on('mouseover', function(){
+      //   $(this).css('opacity', 1);
+      // });
+      // $('.line-buttons').on('mouseout', function(){
+      //   if ($(this).attr('id') != 'q') {
+      //     $(this).css('opacity', .5);
+      //   }
+      // });
 
     d3.select("#seven")
       .on("click", function() {
-
-      dataset = sevenTrain;
-
-      svg.selectAll("circle")
-        .data(dataset)
-        .transition()
-        .ease('linear')
-        .delay(function(d, i) {
-          return i * 10;
-        })
-        .attr("cx", function(d, i) {
-          return xScale(i);
-        })
-        .attr("cy", function(d) {
-          return yScale(d);
-        })
-        .attr('fill', '#B933AD')
+        newPlot(sevenTrain, '#B933AD');
       });
 
     d3.select("#one")
       .on("click", function() {
+          newPlot(oneTrain, '#EE352E');
+      });
 
-      dataset = oneTrain;
+    d3.select("#two")
+      .on("click", function() {
+        newPlot(twoTrain, '#EE352E');
+      });
+
+    d3.select("#three")
+      .on("click", function() {
+        newPlot(threeTrain, '#EE352E');
+      });
+
+    var newPlot = function(dataInput, fillColor){
+      dataset = dataInput
 
       svg.selectAll("circle")
         .data(dataset)
@@ -186,13 +233,13 @@
         .delay(function(d, i) {
           return i * 10;
         })
-        .attr("cx", function(d, i) {
+        .attr('cx', function(d, i) {
           return xScale(i);
         })
-        .attr("cy", function(d) {
+        .attr('cy', function(d) {
           return yScale(d);
         })
-        .attr('fill', '#EE352E')
-      });
+        .attr('fill', fillColor)
+    }
 
   </script>

@@ -10,33 +10,85 @@ body, html {
 }
 
 .buttons {
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  font-size: 15px;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  line-height: 30px;
   text-align: center;
   font-weight: 900;
-  margin-left: 300px;
-  margin-bottom: 40px;
-  margin-top: 15px;
+  margin: 15px auto 40px auto;
   cursor: pointer;
+}
+
+.line-buttons {
+  font-size: 23px;
+  border-radius: 20px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 0 3px;
+  opacity: .5;
+}
+
+.line-buttons:hover {
   opacity: 1;
 }
 
 #seven {
-  border-radius: 10px;
   background-color: #B933AD;
 }
 
 #q {
-  border-radius: 10px;
   background-color: #FCCC0A;
   color: black;
 }
 
 #one {
-  border-radius: 10px;
   background-color: #EE352E;
+}
+
+#two {
+  background-color: #EE352E;
+}
+
+#three {
+  background-color: #EE352E;
+}
+
+#tooltip {
+  z-index: 1;
+  color: black;
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  pointer-events: none;
+}
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip p {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.the-graph {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.svg-chart {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .axis path,
