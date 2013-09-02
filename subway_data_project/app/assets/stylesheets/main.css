@@ -1,0 +1,52 @@
+body, html {
+  background-color: black;
+  color: white;
+  font-family: "Helvetica", sans-serif;
+}
+
+.top {
+  border-bottom: thick solid white;
+  text-align: center;
+}
+
+.buttons {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 900;
+  margin-left: 300px;
+  margin-bottom: 40px;
+  margin-top: 15px;
+  cursor: pointer;
+  opacity: 1;
+}
+
+#seven {
+  border-radius: 10px;
+  background-color: #B933AD;
+}
+
+#q {
+  border-radius: 10px;
+  background-color: #FCCC0A;
+  color: black;
+}
+
+#one {
+  border-radius: 10px;
+  background-color: #EE352E;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: white;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 11px;
+  fill: white;
+}
