@@ -11,7 +11,7 @@ body, html {
 
 .buttons {
   position: relative;
-  width: 200px;
+  width: 450px;
   height: 50px;
   line-height: 30px;
   text-align: center;
@@ -39,7 +39,17 @@ body, html {
   background-color: #B933AD;
 }
 
+#n {
+  background-color: #FCCC0A;
+  color: black;
+}
+
 #q {
+  background-color: #FCCC0A;
+  color: black;
+}
+
+#r {
   background-color: #FCCC0A;
   color: black;
 }
@@ -54,6 +64,74 @@ body, html {
 
 #three {
   background-color: #EE352E;
+}
+
+#four {
+  background-color: #00933C;
+}
+
+#five {
+  background-color: #00933C;
+}
+
+#six {
+  background-color: #00933C;
+}
+
+#a {
+  background-color: #2850AD;
+}
+
+#c {
+  background-color: #2850AD;
+}
+
+#e {
+  background-color: #2850AD;
+}
+
+#b {
+  background-color: #FF6319;
+}
+
+#d {
+  background-color: #FF6319;
+}
+
+#f {
+  background-color: #FF6319;
+}
+
+#m {
+  background-color: #FF6319;
+}
+
+#j {
+  background-color: #996633;
+}
+
+#z {
+  background-color: #996633;
+}
+
+#g {
+  background-color: #6CBE45;
+}
+
+#l {
+  background-color: #A7A9AC;
+}
+
+#s42 {
+  background-color: #808183;
+}
+
+#sFkln {
+  background-color: #808183;
+}
+
+#sRock {
+  background-color: #808183;
 }
 
 #tooltip {
