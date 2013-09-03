@@ -29,6 +29,7 @@
     <button id="best-fit-button">Line of Best Fit</button>
     <button id="all-trains-button">All Trains</button>
   </div>
+  <div class="current-line" id="seven">7</div>
   <div class="svg-chart">
     <div id="tooltip" class="hidden">
       <p><span id="index">month</span></p>
@@ -37,7 +38,7 @@
   </div>
   <div class="description">
     <p>
-      *Wait Assessment is a percentage statistic detailing how many trains are "on time," where "on time" means arriving within 25% of their scheduled arrival. For example, if Train A arrives, and Train B is scheduled to arrive 8 minutes later, then Train B is successfully on time if it arrives with 10 minutes.
+      *Wait Assessment is a percentage statistic detailing the number of trains that are "on time," where "on time" means arriving within 25% of their scheduled arrival. For example, if Train A arrives, and Train B is scheduled to arrive 8 minutes later, then Train B is successfully on time if it arrives within 10 minutes.
     </p>
   </div>
   <script type="text/javascript">
@@ -248,150 +249,200 @@
       .on("click", function() {
         newPlot(sevenTrain, '#B933AD');
         bestFitLine([73.97, 77.96]);
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#n")
       .on('click', function() {
         newPlot(nTrain, '#FCCC0A');
         bestFitLine([80.75, 77.67])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'black')
       });
 
     d3.select("#q")
       .on("click", function() {
         newPlot(qTrain, '#FCCC0A');
         bestFitLine([82.40, 78.34])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'black')
       });
 
     d3.select("#r")
       .on("click", function() {
         newPlot(rTrain, '#FCCC0A');
         bestFitLine([77.30, 77.87])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'black')
       });
 
     d3.select("#one")
       .on("click", function() {
         newPlot(oneTrain, '#EE352E');
         bestFitLine([72.53, 83.86])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#two")
       .on("click", function() {
         newPlot(twoTrain, '#EE352E');
         bestFitLine([72.47, 73.32])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#three")
       .on("click", function() {
         newPlot(threeTrain, '#EE352E');
         bestFitLine([76.11, 77.43])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#four")
       .on("click", function() {
         newPlot(fourTrain, '#00933C');
         bestFitLine([69.66, 75.20])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#five")
       .on("click", function() {
         newPlot(fiveTrain, '#00933C');
         bestFitLine([70.80, 71.66])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#six")
       .on("click", function() {
         newPlot(sixTrain, '#00933C');
         bestFitLine([71.60, 78.82])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#a")
       .on("click", function() {
         newPlot(aTrain, '#2850AD');
         bestFitLine([70.60, 73.93])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#c")
       .on("click", function() {
         newPlot(cTrain, '#2850AD');
         bestFitLine([78.77, 81.31])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#e")
       .on("click", function() {
         newPlot(eTrain, '#2850AD');
         bestFitLine([72.89, 75.37])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#b")
       .on("click", function() {
         newPlot(bTrain, '#FF6319');
         bestFitLine([76.92, 79.66])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#d")
       .on("click", function() {
         newPlot(dTrain, '#FF6319');
         bestFitLine([80.05, 78.72])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#f")
       .on("click", function() {
         newPlot(fTrain, '#FF6319');
-        bestFitLine([69.04, 75.59])
+        bestFitLine([69.04, 75.59]);
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#m")
       .on("click", function() {
         newPlot(mTrain, '#FF6319');
         bestFitLine([88.74, 75.81])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#j")
       .on("click", function() {
         newPlot(jTrain, '#996633');
         bestFitLine([85.91, 81.95])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#z")
       .on("click", function() {
         newPlot(zTrain, '#996633');
         bestFitLine([85.91, 81.95])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#g")
       .on("click", function() {
         newPlot(gTrain, '#6CBE45');
         bestFitLine([80.08, 84.22])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#l")
       .on("click", function() {
         newPlot(lTrain, '#A7A9AC');
         bestFitLine([75.63, 81.31])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#s42")
       .on("click", function() {
         newPlot(s42Train, '#808183');
         bestFitLine([74.52, 92.14])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#sFkln")
       .on("click", function() {
         newPlot(sFklnTrain, '#808183');
         bestFitLine([97.54, 96.44])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#sRock")
       .on("click", function() {
         newPlot(sRockTrain, '#808183');
         bestFitLine([91.47, 94.64])
+        $('.current-line').text($(this).text())
+        $('.current-line').css('color', 'white')
       });
 
     d3.select("#all-trains-button")
       .on('click', function() {
         newPlot(allTrains, 'white')
         bestFitLine([76.94, 80.13])
+        $('.current-line').css('background-color', 'black')
+        $('.current-line').css('color', 'black')
       })
 
     // Not sure where to put this right now.
@@ -468,7 +519,9 @@
         .attr('cy', function(d) {
           return yScale(d);
         })
-        .attr('fill', fillColor)
+        .attr('fill', fillColor);
+
+      $('.current-line').css('background-color', fillColor);
     }
 
     var bestFitLine = function(train) {
