@@ -208,6 +208,16 @@ body, html {
   text-align: justify;
 }
 
+.test-class {
+  background-image: url('man.svg');
+  background-repeat: no-repeat;
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  background-color: steelblue;
+  border-radius: 10px;
+}
+
 .axis path,
 .axis line {
   fill: none;

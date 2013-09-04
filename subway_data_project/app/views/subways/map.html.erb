@@ -1,21 +1,126 @@
- <script type="text/javascript">
+<div class="buttons">
+  <div class="line-buttons" id="seven">7</div>
+  <div class="line-buttons" id="one">1</div>
+  <div class="line-buttons" id="two">2</div>
+  <div class="line-buttons" id="three">3</div>
+  <div class="line-buttons" id="four">4</div>
+  <div class="line-buttons" id="five">5</div>
+  <div class="line-buttons" id="six">6</div>
+  <div class="line-buttons" id="a">A</div>
+  <div class="line-buttons" id="c">C</div>
+  <div class="line-buttons" id="e">E</div>
+  <div class="line-buttons" id="j">J</div>
+  <div class="line-buttons" id="z">Z</div>
+  <div class="line-buttons" id="b">B</div>
+  <div class="line-buttons" id="d">D</div>
+  <div class="line-buttons" id="f">F</div>
+  <div class="line-buttons" id="m">M</div>
+  <div class="line-buttons" id="n">N</div>
+  <div class="line-buttons" id="q">Q</div>
+  <div class="line-buttons" id="r">R</div>
+  <div class="line-buttons" id="g">G</div>
+  <div class="line-buttons" id="l">L</div>
+  <div class="line-buttons" id="s42">S</div>
+  <div class="line-buttons" id="sFkln">S</div>
+  <div class="line-buttons" id="sRock">S</div>
+  <!-- <button id="all-trains-button">All Trains</button> -->
+</div>
 
-  var path = d3.geo.path();
+<div class="test-class">
+</div>
 
-  d3.json("nyc.json", function(json) {
-    svg.selectAll("path")
-      .data(json.features)
-      .enter()
-      .append("path")
-      .attr("d", path);
-  });
+<script>
 
+var w = 400
+var h = 500
 
+var sixStations = [["Brooklyn Bridge-City Hall",40.713065,-74.004131],["Canal St",40.718092,-73.999892],["Spring St",40.722301,-73.997141],["Bleecker St",40.725915,-73.994659],["Astor Place",40.730054,-73.99107],["14th St-Union Square",40.734673,-73.989951],["23rd St",40.739864,-73.986599],["28th St",40.74307,-73.984264],["33rd St",40.746081,-73.982076],["Grand Central-42nd St",40.751431,-73.976041],["51st St",40.757107,-73.97192],["59th St",40.762526,-73.967967],["68th St-Hunter College",40.768141,-73.96387],["77th St",40.77362,-73.959874],["86th St",40.779492,-73.955589],["96th St",40.785672,-73.95107],["103rd St",40.7906,-73.947478],["110th St",40.79502,-73.94425],["116th St",40.798629,-73.941617],["125th St",40.804138,-73.937594],["138th St-3rd Ave",40.810476,-73.926138],["Brook Av",40.807566,-73.91924],["Cypress Av",40.805368,-73.914042],["East 143rd St-St Mary's St",40.808719,-73.907657],["East 149th St",40.812118,-73.904098],["Longwood Av",40.816104,-73.896435],["Hunts Point Av",40.820948,-73.890549],["Whitlock Av",40.826525,-73.886283],["Elder Av",40.828584,-73.879159],["Morrison Av-Soundview Av",40.829521,-73.874516],["St Lawrence Av",40.831509,-73.867618],["Parkchester-East 177th St",40.833226,-73.860816],["Castle Hill Av",40.834255,-73.851222],["Zerega Av",40.836488,-73.847036],["Westchester Square-East Tremont Av",40.839892,-73.842952],["Middletown Rd",40.843863,-73.836322],["Buhre Av",40.84681,-73.832569],["Pelham Bay Park",40.852462,-73.828121]];
 
+var rStations = [["Forest Hills-71st Av",40.721691,-73.844521],["67th Av",40.726523,-73.852719],["63rd Drive-Rego Park",40.729846,-73.861604],["Woodhaven Blvd",40.733106,-73.869229],["Grand Av-Newtown",40.737015,-73.877223],["Elmhurst Av",40.742454,-73.882017],["Jackson Heights-Roosevelt Ave",40.746644,-73.891338],["65th St",40.749669,-73.898453],["Northern Blvd",40.752885,-73.906006],["46th St",40.756312,-73.913333],["Steinway St",40.756879,-73.92074],["36th St",40.752039,-73.928781],["Queens Plaza",40.748973,-73.937243],["Lexington Av",40.76266,-73.967258],["59th St",40.762526,-73.967967],["57th St",40.764664,-73.980658],["49th St",40.759901,-73.984139],["Times Square-42nd St",40.754672,-73.986754],["34th St",40.749719,-73.987823],["28th St",40.745494,-73.988691],["23rd St",40.741303,-73.989344],["14th St-Union Square",40.734673,-73.989951],["8th St",40.730328,-73.992629],["Prince St",40.724329,-73.997702],["Canal St",40.718092,-73.999892],["City Hall",40.713282,-74.006978],["Cortlandt St",40.710668,-74.011029],["Rector St",40.70722,-74.013342],["Whitehall St",40.703087,-74.012994],["Court St",40.6941,-73.991777],["Jay St - Borough Hall",40.692338,-73.987342],["DeKalb Av",40.690635,-73.981824],["Atlantic Av-Barclays Ctr",40.683666,-73.97881],["Union St",40.677316,-73.98311],["9th St",40.670847,-73.988302],["Prospect Av",40.665414,-73.992872],["25th St",40.660397,-73.998091],["36th St",40.655144,-74.003549],["45th St",40.648939,-74.010006],["53rd St",40.645069,-74.014034],["59th St",40.641362,-74.017881],["Bay Ridge Av",40.634967,-74.023377],["77th St",40.629742,-74.02551],["86th St",40.622687,-74.028398],["95th St",40.616622,-74.030876]];
 
+var sevenStations = [["42nd St",40.757308,-73.989735],["5th Av",40.753821,-73.981963],["Grand Central-42nd St",40.751431,-73.976041],["Vernon Blvd-Jackson Av",40.742626,-73.953581],["Hunters Point",40.742216,-73.948916],["45 Rd-Court House Sq",40.747023,-73.945264],["Queensboro Plaza",40.750582,-73.940202],["Rawson St-33rd St",40.744587,-73.930997],["Lowery St-40th St",40.743781,-73.924016],["Bliss St-46th St",40.743132,-73.918435],["Lincoln Av-52nd St",40.744149,-73.912549],["Woodside Av-61st St",40.74563,-73.902984],["Fisk Av-69th St",40.746325,-73.896403],["Broadway-74th St",40.746848,-73.891394],["82nd St-Jackson Heights",40.747659,-73.883697],["90th St Elmhurst",40.748408,-73.876613],["Junction Blvd",40.749145,-73.869527],["103rd St",40.749865,-73.8627],["111th St",40.75173,-73.855334],["Mets - Willets Point",40.754622,-73.845625],["Flushing-Main St",40.7596,-73.83003]];
 
+var nStations = [["Ditmars Blvd",40.775036,-73.912034],["Astoria Blvd-Hoyt Av",40.770258,-73.917843],["30 Av-Grand Av",40.766779,-73.921479],["Broadway",40.76182,-73.925508],["36 Av-Washington Av",40.756804,-73.929575],["39 Av-Beebe Av",40.752882,-73.932755],["Queensboro Plaza",40.750582,-73.940202],["Lexington Av",40.76266,-73.967258],["59th St",40.762526,-73.967967],["57th St",40.764664,-73.980658],["49th St",40.759901,-73.984139],["Times Square",40.75529,-73.987495],["34th St",40.749567,-73.98795],["28th St",40.745494,-73.988691],["23rd St",40.741303,-73.989344],["14th St-Union Square",40.734673,-73.989951],["8th St",40.730328,-73.992629],["Prince St",40.724329,-73.997702],["Canal St",40.718092,-73.999892],["Atlantic Av-Barclays Ctr",40.683666,-73.97881],["36th St",40.655144,-74.003549],["59th St",40.641362,-74.017881],["8th Av",40.635064,-74.011719],["Fort Hamilton Parkway",40.631386,-74.005351],["New Utrecht Av",40.624842,-73.996353],["18th Av",40.620671,-73.990414],["20th Av",40.61741,-73.985026],["Bay Parkway-22nd Av",40.611815,-73.981848],["Kings Highway",40.603923,-73.980353],["Av U",40.597473,-73.979137],["86th St",40.592721,-73.97823],["Stillwell Av",40.577422,-73.981233]];
 
+dataset = nStations;
 
+var projection = d3.geo.mercator() 
+  .center([-73.889923, 40.730000]) 
+  .scale(350000) 
+  .translate([200, 250]);
 
+var svg = d3.select(".test-class")
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
 
- </script>
+svg.selectAll("dot")
+  .data(dataset)
+  .enter()
+  .append("circle")
+  .attr("class", "dot")
+  .attr("transform", function(d){
+    return "translate(" + projection([d[2], d[1]]) + ")";
+    })
+  .attr("r", 1)
+  .style("fill", '#B933AD')
+
+var lineFunction = d3.svg.line()
+  .x(function(d) {
+    return projection([d[2], d[1]])[0]
+  })
+  .y(function(d) { return projection([d[2], d[1]])[1]})
+  .interpolate('monotone');
+
+svg.append('path')
+  .attr('d', lineFunction(dataset))
+  .attr('stroke', '#B933AD')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+var div = d3.select("body").append("div")
+  .style("position", "absolute")
+  .style("text-align", "left")
+  .style("background", "white")
+  .style("border-radius", "4px")
+  .style("padding", "6px")
+  .style("border", "solid 1px #DBDCDE")
+  .style("opacity", 0);
+
+function mouseover(d) {
+  d3.select(this)
+    .transition()
+    .ease("elastic")
+    .attr("r", 2)
+    .duration(500);
+
+  div.html(d[0])
+    .style("left", (d3.event.pageX + 9) + "px")
+    .style("top", (d3.event.pageY - 43) + "px")
+    .style("color", "black")
+    div
+    .transition()
+    .style("visibility", "visible")
+    .style("opacity", 1)
+    .duration(500);
+}
+
+function mouseout(d) {
+  d3.select(this)
+    .transition()
+    .ease("elastic")
+    .attr("r", 2)
+   .duration(1000);
+  div
+    .transition()
+    .style("opacity", 0)
+    .style("visibility", "hidden")
+    .duration(1000);
+
+}
+
+d3.selectAll(".dot")
+  .on("mouseover", mouseover)
+  .on("mouseout", mouseout);
+
+</script>
