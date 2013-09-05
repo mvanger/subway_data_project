@@ -4,4 +4,7 @@ class SubwaysController < ApplicationController
 
   def map
   end
+
+  def test
+  end
 end

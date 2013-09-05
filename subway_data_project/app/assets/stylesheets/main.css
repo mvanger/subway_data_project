@@ -11,7 +11,7 @@ body, html {
 
 .buttons {
   position: relative;
-  width: 450px;
+  width: 400px;
   height: 50px;
   line-height: 30px;
   text-align: center;
@@ -22,7 +22,7 @@ body, html {
 
 .line-buttons {
   font-size: 23px;
-  border-radius: 20px;
+  border-radius: 2000px;
   float: left;
   width: 30px;
   height: 30px;
@@ -46,7 +46,8 @@ body, html {
   font-size: 40px;
   border-radius: 50px;
   opacity: 1;
-  background-color: #B933AD;
+  color: 'black';
+  background-color: 'black';
 }
 
 #seven {
@@ -150,10 +151,17 @@ body, html {
 
 #best-fit-button {
   cursor: pointer;
+  display: none;
 }
 
 #all-trains-button {
   cursor: pointer;
+  display: none;
+}
+
+#map-button {
+  cursor: pointer;
+  display: none;
 }
 
 #tooltip {
@@ -189,6 +197,7 @@ body, html {
   position: relative;
   width: 900px;
   margin: 0 auto;
+  display: none;
 }
 
 #hidden {
@@ -208,7 +217,7 @@ body, html {
   text-align: justify;
 }
 
-.test-class {
+.container {
   background-image: url('man.svg');
   background-repeat: no-repeat;
   position: relative;
