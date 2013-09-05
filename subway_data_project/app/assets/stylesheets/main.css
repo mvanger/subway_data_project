@@ -9,6 +9,7 @@ body, html {
   text-align: center;
 }
 
+
 .buttons {
   position: relative;
   width: 400px;
@@ -19,6 +20,7 @@ body, html {
   margin: 15px auto 40px auto;
   cursor: pointer;
 }
+
 
 .line-buttons {
   font-size: 23px;
@@ -51,82 +53,37 @@ body, html {
   display: none;
 }
 
+@-moz-document url-prefix() {
+  .buttons { line-height: 33px; }
+  .current-line { line-height: 57px; }
+}
+
 #seven {
   background-color: #B933AD;
 }
 
-#n {
+#n, #q, #r {
   background-color: #FCCC0A;
   color: black;
 }
 
-#q {
-  background-color: #FCCC0A;
-  color: black;
-}
-
-#r {
-  background-color: #FCCC0A;
-  color: black;
-}
-
-#one {
+#one, #two, #three {
   background-color: #EE352E;
 }
 
-#two {
-  background-color: #EE352E;
-}
-
-#three {
-  background-color: #EE352E;
-}
-
-#four {
+#four, #five, #six {
   background-color: #00933C;
 }
 
-#five {
-  background-color: #00933C;
-}
-
-#six {
-  background-color: #00933C;
-}
-
-#a {
+#a, #c, #e {
   background-color: #2850AD;
 }
 
-#c {
-  background-color: #2850AD;
-}
-
-#e {
-  background-color: #2850AD;
-}
-
-#b {
+#b, #d, #f, #m {
   background-color: #FF6319;
 }
 
-#d {
-  background-color: #FF6319;
-}
-
-#f {
-  background-color: #FF6319;
-}
-
-#m {
-  background-color: #FF6319;
-}
-
-#j {
-  background-color: #996633;
-}
-
-#z {
+#j, #z {
   background-color: #996633;
 }
 
@@ -138,31 +95,63 @@ body, html {
   background-color: #A7A9AC;
 }
 
-#s42 {
+#s42, #sFkln, #sRock {
   background-color: #808183;
 }
 
-#sFkln {
-  background-color: #808183;
-}
-
-#sRock {
-  background-color: #808183;
-}
-
-#best-fit-button {
+#best-fit-button, #all-trains-button, #map-button {
   cursor: pointer;
   display: none;
 }
 
-#all-trains-button {
-  cursor: pointer;
-  display: none;
-}
+.myButton {
 
-#map-button {
-  cursor: pointer;
-  display: none;
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+    background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+
+    background-color:#ffffff;
+
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+
+    border:1px solid #dcdcdc;
+
+    display:inline-block;
+    color:#000000;
+    font-family: Helvetica;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px;
+    text-decoration:none;
+
+    text-shadow:0px 1px 0px #ffffff;
+    margin-top: 10px;
+}
+.myButton:hover {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+    background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+
+    background-color:#f6f6f6;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
 }
 
 #tooltip {
@@ -219,11 +208,20 @@ body, html {
   text-align: justify;
 }
 
+#attribution {
+  float: left;
+}
+
+#attribution-link {
+  color: white;
+}
+
 .container {
-  background-image: url('man.svg');
+  background-image: url(http://s3.amazonaws.com/subway_ga_app/man.svg);
   background-repeat: no-repeat;
   position: relative;
   width: 400px;
+  height: 500px;
   margin: 0 auto;
   background-color: steelblue;
   border-radius: 10px;

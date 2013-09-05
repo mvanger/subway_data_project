@@ -26,9 +26,9 @@
     <!-- <div class="line-buttons" id="s42">S</div>
     <div class="line-buttons" id="sFkln">S</div>
     <div class="line-buttons" id="sRock">S</div> -->
-    <button id="best-fit-button">Line of Best Fit</button>
-    <button id="all-trains-button">All Trains</button>
-    <button id="map-button">Back to Map</button>
+    <button class="myButton" id="all-trains-button">All Trains</button>
+    <button class="myButton" id="best-fit-button">Line of Best Fit</button>
+    <button class="myButton" id="map-button">Back to Map</button>
   </div>
   <div class="current-line" id=""></div>
   <div class="container">
@@ -41,7 +41,13 @@
   </div>
   <div class="description">
     <p>
-      *Wait Assessment is a percentage statistic detailing the number of trains that are "on time," where "on time" means arriving within 25% of their scheduled arrival. For example, if Train A arrives, and Train B is scheduled to arrive 8 minutes later, then Train B is successfully on time if it arrives within 10 minutes.
+      *Whether a train is considered on-time is here measured using Wait Assessment. Wait Assessment is a percentage statistic detailing the number of trains that are "on time," where "on time" means arriving within 25% of their scheduled arrival. For example, if Train A arrives, and Train B is scheduled to arrive 8 minutes later, then Train B is successfully on time if it arrives within 10 minutes.
+    </p>
+    <p>
+      The line of best fit is a simple linear regression. It is meant to convey the general trend of a subway line over the time period, and is probably not predictive.
+    </p>
+    <p id="attribution">
+      <small>By <a id="attribution-link" href="http://www.twitter.com/mvanger">Mike Vanger</a></small>
     </p>
   </div>
   <script type="text/javascript">
@@ -62,6 +68,12 @@
 
     // Here are some datasets
     var dataset = [];
+
+    // var SDP = {};
+
+    // SDP.trains = {};
+    // SDP.trains.n = ...
+    // SDP.trains.q =
 
     var nTrain = [78.8, 79.0, 79.3, 79.4, 80.0, 80.4, 80.6, 81.4, 82.1, 81.8, 82.2, 82.0, 82.2, 82.4, 82.6, 82.7, 81.9, 81.4, 81.2, 80.4, 79.3, 78.8, 78.8, 78.3, 77.5, 77.0, 76.3, 76.1, 76.1, 76.2, 75.9, 77.0, 76.8, 77.6, 77.5, 77.8, 78.1, 78.0, 78.4, 78.5, 79.0, 78.6, 78.7, 79.0, 79.4, 79.5, 78.9, 78.3, 78.4, 78.1, 78.5, 79.1, 79.1, 79.4];
 
@@ -168,8 +180,8 @@
 
     var mapsvg = d3.select(".container")
       .append("svg")
-      .attr("width", w)
-      .attr("height", h);
+      .attr("width", mapWidth)
+      .attr("height", mapHeight);
 
     // svg.selectAll("dot")
     //   .data(dataset)
@@ -432,7 +444,7 @@
       .attr("dy", "1em")
       .style('font-size', '20px')
       .style("text-anchor", "end")
-      .text("Wait Assessment (%) *");
+      .text("% of Trains On-Time *");
 
     // When you click a button it changes to that train's data
 
