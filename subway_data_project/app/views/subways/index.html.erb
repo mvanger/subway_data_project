@@ -190,7 +190,6 @@
       .attr('stroke-width', 3)
       .attr('fill', 'none');
 
-
     var newLine = function(stationData, lineColor) {
       mapDataset = stationData
 
@@ -201,7 +200,6 @@
         .attr('d', lineFunction(mapDataset))
         .attr('stroke', lineColor)
     }
-
 
     d3.select('#n')
       .on('mouseover', function(){
@@ -307,9 +305,6 @@
       .on('mouseover', function(){
         newLine(lStations, '#A7A9AC')
       })
-
-
-
 
     // Sets 7 train as default
     dataset = sevenTrain;
@@ -432,7 +427,6 @@
       .call(yAxis)
      .append("text")
       .attr("class", "label")
-     // .attr("transform", "rotate(-90)")
       .attr("y", 40)
       .attr("x", 220)
       .attr("dy", "1em")
@@ -611,7 +605,6 @@
           .call(yAxis)
          .append("text")
           .attr("class", "label")
-         // .attr("transform", "rotate(-90)")
           .attr("y", 40)
           .attr("x", 150)
           .attr("dy", "1em")
@@ -647,9 +640,6 @@
             return yScale(d);
           })
           .attr('fill', 'white')
-
-        // This needs to be rescaled
-        // bestFitLine([76.94, 80.13])
       })
 
     var newPlot = function(dataInput, fillColor){
@@ -692,12 +682,11 @@
     bestFitLine([73.97, 77.96]);
 
     var zoomOut = function(jqueryLine, dataInput, fillColor, textColor) {
-        $(jqueryLine).css('z-index', 1)
-        $(jqueryLine).css('opacity', 1)
-        if ($('.container').css('display') != "none") {
+      $(jqueryLine).css('z-index', 1)
+      $(jqueryLine).css('opacity', 1)
+      if ($('.container').css('display') != "none") {
         $(jqueryLine).toggle({ effect: "scale", percent: 7000, duration: 500 });
         $(jqueryLine).toggle({ effect: "scale", percent: 7000, duration: 500 });
-
         setTimeout(function(){
           newPlot(dataInput, fillColor)},
           1000
@@ -720,33 +709,31 @@
           $('.svg-chart').css('display', 'block')
           $('#best-fit-button').css('display', 'inline')
           $('#all-trains-button').css('display', 'inline')
-          $('#map-button').css('display', 'inline')},
+          $('#map-button').css('display', 'inline')
+          $('.current-line').css('display', 'block')
+          $('.description').css('display', 'block')},
           500
         )
-        } else {
-          newPlot(dataInput, fillColor)
-
-
-          $('.current-line').text($(jqueryLine).text())
-
-
-          $('.current-line').css('color', textColor)
-          $(jqueryLine).hover(function(){
-            $(jqueryLine).css('opacity', 1);
-          }, function(){
-            $(jqueryLine).css('opacity', .5);
-          })
-        }
+      } else {
+        newPlot(dataInput, fillColor)
+        $('.current-line').text($(jqueryLine).text())
+        $('.current-line').css('color', textColor)
+        $(jqueryLine).hover(function(){
+          $(jqueryLine).css('opacity', 1);
+        }, function(){
+          $(jqueryLine).css('opacity', .5);
+        })
       }
+    }
 
-      $('#map-button').on('click', function(){
-        $('.svg-chart').fadeOut(500)
-        $('.container').fadeIn(500)
-        $('.current-line').css('background-color', 'black')
-        $('.current-line').css('color', 'black')
-        $('#best-fit-button').css('display', 'none')
-        $('#all-trains-button').css('display', 'none')
-        $('#map-button').css('display', 'none')
-      })
+    $('#map-button').on('click', function(){
+      $('.svg-chart').fadeOut(500)
+      $('.container').fadeIn(500)
+      $('.current-line').css('display', 'none')
+      $('#best-fit-button').css('display', 'none')
+      $('#all-trains-button').css('display', 'none')
+      $('#map-button').css('display', 'none')
+      $('.description').css('display', 'none')
+    })
 
   </script>
